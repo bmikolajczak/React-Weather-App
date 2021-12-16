@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Example from './components/CurrentWeather';
+import WeeklyWeather from './components/WeeklyWeather';
+
+// const cities=[
+//   { key: 'pz', value: 'poznan', text: 'Poznań' },
+//   { key: 'ld', value: 'london', text: 'London' },
+//   { key: 'hav', value: 'havana', text: 'Havana' },
+// ]
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <select class="ui dropdown select" onChange={(e)=> console.log(e.target.value)}>
+        <option disabled selected>Choose your city</option>
+        <option value="poznan">Poznań</option>
+        <option value="london">London</option>
+        <option value="havana">Havana</option>
+      </select>
+      <Example/>
+      <WeeklyWeather/>
     </div>
   );
 }
