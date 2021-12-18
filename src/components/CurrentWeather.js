@@ -1,8 +1,6 @@
 
 import React from 'react';
 import {Card, Image} from 'semantic-ui-react';
-//import moment from 'moment'
-
 
 function CurrentWeather({weatherData}){
     return (
@@ -11,9 +9,9 @@ function CurrentWeather({weatherData}){
                 <Card.Content>
                     <Image src={`/${weatherData.name}.jpg`} wrapped ui={true} size='medium' alt={weatherData.name} />
                     <Card.Header>{weatherData.name}</Card.Header>
-                    <p>Current time {new Date((weatherData.dt+ weatherData.timezone)*1000).toLocaleTimeString('pl-PL') }</p>
-                    <p>Sunrise time: {new Date((weatherData.sys.sunrise + weatherData.timezone) * 1000).toLocaleTimeString('pl-PL')}</p>
-                    <p>Sunset time: {new Date((weatherData.sys.sunset + weatherData.timezone) * 1000).toLocaleTimeString('pl-PL')}</p>
+                    <p>Current time {new Date(weatherData.dt*1000 + (weatherData.timezone*1000)).toLocaleTimeString('pl-PL') }</p>
+                    <p>Sunrise time: {new Date(weatherData.sys.sunrise * 1000 + (weatherData.timezone*1000)).toLocaleTimeString('pl-PL')}</p>
+                    <p>Sunset time: {new Date(weatherData.sys.sunset * 1000 + (weatherData.timezone*1000)).toLocaleTimeString('pl-PL')}</p>
                     </Card.Content>
                     <hr/>
                     <Card.Content>

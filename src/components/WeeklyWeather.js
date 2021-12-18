@@ -2,7 +2,7 @@ import React from 'react';
 import {Card} from 'semantic-ui-react';
 
 const WeeklyWeather = ({weatherData})=>{
-    //reducing array of days to 5 
+    //reducing array of days to 5 elements 
     const slicedArr= weatherData.daily.slice(1,6)
     return(
         <Card.Group>
