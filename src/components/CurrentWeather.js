@@ -18,8 +18,8 @@ function CurrentWeather({weatherData}){
                     <img src={`${process.env.REACT_APP_WEATHER_ICON_URL}${weatherData.weather[0].icon}@2x.png`} alt=''/>
                     <p>Temperature: {weatherData.main.temp}&deg;C</p>
                     <p>{weatherData.weather[0].desc}</p>
-                    <p>wind force:{weatherData.wind.speed}km/h</p>
-                    <p>wind direction: {weatherData.wind.deg}</p>
+                    <p>wind force:{weatherData.wind.speed} m/s</p>
+                    <p>wind direction: {weatherData.wind.deg}&deg;</p>
                 </Card.Content>
             </Card>
         </div>
