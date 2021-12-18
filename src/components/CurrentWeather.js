@@ -9,7 +9,7 @@ function CurrentWeather({weatherData}){
         <div>
             <Card centered>
                 <Card.Content>
-                    <Image src={`/${weatherData.name}.jpg`} wrapped ui={true} size='medium' />
+                    <Image src={`/${weatherData.name}.jpg`} wrapped ui={true} size='medium' alt={weatherData.name} />
                     <Card.Header>{weatherData.name}</Card.Header>
                     <p>Current time {new Date((weatherData.dt+ weatherData.timezone)*1000).toLocaleTimeString('pl-PL') }</p>
                     <p>Sunrise time: {new Date((weatherData.sys.sunrise + weatherData.timezone) * 1000).toLocaleTimeString('pl-PL')}</p>
