@@ -1,33 +1,31 @@
 
 import React from 'react';
-import {Card, Image } from 'semantic-ui-react';
+import {Card} from 'semantic-ui-react';
+//import moment from 'moment'
 
 
-function RenderExample(){
+function CurrentWeather({weatherData}){
     return (
-        <div>Hello There
-            <p>i am an example code</p>
-        
-        <Card>
-            <Card.Content>
-                <Image src="https://www.polska.travel/images/pl-PL/glowne-miasta/poznan/poznan_ratusz_2_1170.jpg" floated='right'
-                size='small'
-                    />
-            <Card.Header>Poznań</Card.Header>
-            <p>Current time {5*5/2}</p>
-            </Card.Content>
-            <Card.Content extra>
-            <p>Temperature: </p>
-            <p>weather icon here</p>
-            <p>weateher desc here</p>
-            <p>wind force here</p>
-            <p>wind dir here</p>
-            </Card.Content>
-            
-        </Card>
-        
+        <div>
+            <Card>
+                <Card.Content>
+                    
+                    <Card.Header>{weatherData.name}</Card.Header>
+                    <p>Current time {new Date((weatherData.dt+ weatherData.timezone)*1000).toLocaleTimeString('pl-PL') }</p>
+                    <p>Sunrise time: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString('pl-PL')}</p>
+                    <p>Sunset time: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString('pl-PL')}</p>
+                    </Card.Content>
+                    <hr/>
+                    <Card.Content>
+                    <img src={`${process.env.REACT_APP_WEATHER_ICON_URL}${weatherData.weather[0].icon}@2x.png`} alt=''/>
+                    <p>Temperature: {weatherData.main.temp}&deg;C</p>
+                    <p>{weatherData.weather[0].desc}</p>
+                    <p>wind force:{weatherData.wind.speed}km/h</p>
+                    <p>wind direction: {weatherData.wind.deg}</p>
+                </Card.Content>
+            </Card>
         </div>
     )
 }
 
-export default RenderExample
+export default CurrentWeather
