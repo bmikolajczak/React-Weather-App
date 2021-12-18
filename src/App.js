@@ -3,6 +3,7 @@ import React from 'react'
 import CurrentWeather from './components/CurrentWeather';
 import WeeklyWeather from './components/WeeklyWeather';
 import axios from 'axios';
+import {Header} from 'semantic-ui-react'
 
 
 
@@ -17,7 +18,8 @@ class App extends React.Component {
   render(){
     return (
     <div className="App">
-      <select class="ui dropdown select" onChange={
+      <Header as='h1'> React Weather App </Header>
+      <select className="ui dropdown select" onChange={
         (e)=> {
           axios.get(`${process.env.REACT_APP_WEATHER_API_URL}/weather?q=${e.target.value}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
           .then(response=> {

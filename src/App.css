@@ -1,7 +1,26 @@
+body{
+  background-color: #D1C6B6;
+}
 .App {
   text-align: center;
+  padding: 3rem 0.5rem;
+  
 }
-
+.App h1{
+  color: white;
+}
+.App> * {
+  margin-bottom: 1rem;
+}
+.cards{
+  justify-content: center;
+}
+.cards .card{
+  flex-basis: 16%;
+}
+.head-current{
+  margin-top: 0.5rem;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
